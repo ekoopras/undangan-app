@@ -69,8 +69,8 @@ class ThemeResource extends Resource
     {
         return [
             'index' => Pages\ListThemes::route('/'),
-            //'create' => Pages\CreateTheme::route('/create'),
-            //'edit' => Pages\EditTheme::route('/{record}/edit'),
+            'create' => Pages\CreateTheme::route('/create'),
+            'edit' => Pages\EditTheme::route('/{record}/edit'),
         ];
     }
 }
