@@ -77,20 +77,17 @@ $tglresepsi = $openingData['opening_tanggal_resepsi'] ?? null;
 
         <!-- Nama Mempelai -->
         <div class="anim-fade-up" style="animation-delay: 0.6s; opacity: 0;">
-            <h1 class="font-alex text-[40px] font-light tracking-wide text-white flex items-center justify-center gap-3 drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]">
-                {{ $pria }}
-                <span class="font-alex text-4xl md:text-5xl lowercase mx-1">&</span>
-                {{ $wanita }}
+            <h1 class="font-alex text-[40px] font-bold text-white flex items-center justify-center gap-3 drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]">
+                <span>{{ $pria }}</span>
+                <img src="{{ asset('themes/premium-02/frame.png') }}" alt="&" class="h-[60px] w-auto inline-block object-contain" />
+                <span>{{ $wanita }}</span>
             </h1>
         </div>
 
         <!-- Info Tanggal -->
         <div class="anim-fade-up" style="animation-delay: 0.8s; opacity: 0;">
-            <p class="font-poppins text-xs text-[#E6DDD7]">
-                Akan Menyelenggarakan Acara Pernikahan Pada
-            </p>
-            <p class="font-poppins text-[18px] font-bold tracking-widest text-[#E6DDD7] mt-2">
-                {{ \Carbon\Carbon::parse($invitation->sections_data['opening']['opening_tanggal_resepsi'] ?? now())->locale('id')->translatedFormat('d F Y') }}
+            <p class="font-poppins text-[1rem] font-bold text-white mt-2 uppercase">
+                {{ $tglresepsi ? \Carbon\Carbon::parse($tglresepsi)->locale('id')->translatedFormat('d F Y') : '-' }}
             </p>
         </div>
 
@@ -99,24 +96,24 @@ $tglresepsi = $openingData['opening_tanggal_resepsi'] ?? null;
             data-target="{{ $tglresepsi }}"
             style="animation-delay: 1s; opacity: 0;">
 
-            <div class="w-14 h-14 bg-[#E6DDD7] text-[#000] border border-amber-300/20 rounded-xl flex flex-col items-center justify-center shadow-lg backdrop-blur-xs">
+            <div class="w-14 h-14 bg-[#374049] text-[#fff] rounded-xl flex flex-col items-center justify-center shadow-lg backdrop-blur-xs">
                 <span id="days" class="font-inter text-xl font-bold tracking-tight leading-none">00</span>
-                <span class="text-[8px] uppercase tracking-wider text-[#000] mt-1 font-medium leading-none">Hari</span>
+                <span class="text-[8px] uppercase tracking-wider text-[#fff] mt-1 font-medium leading-none">Hari</span>
             </div>
 
-            <div class="w-14 h-14 bg-[#E6DDD7] text-[#000] border border-amber-300/20 rounded-xl flex flex-col items-center justify-center shadow-lg backdrop-blur-xs">
+            <div class="w-14 h-14 bg-[#374049] text-[#fff] rounded-xl flex flex-col items-center justify-center shadow-lg backdrop-blur-xs">
                 <span id="hours" class="font-inter text-xl font-bold tracking-tight leading-none">00</span>
-                <span class="text-[8px] uppercase tracking-wider text-[#000] mt-1 font-medium leading-none">Jam</span>
+                <span class="text-[8px] uppercase tracking-wider text-[#fff] mt-1 font-medium leading-none">Jam</span>
             </div>
 
-            <div class="w-14 h-14 bg-[#E6DDD7] text-[#000] border border-amber-300/20 rounded-xl flex flex-col items-center justify-center shadow-lg backdrop-blur-xs">
+            <div class="w-14 h-14 bg-[#374049] text-[#fff] rounded-xl flex flex-col items-center justify-center shadow-lg backdrop-blur-xs">
                 <span id="minutes" class="font-inter text-xl font-bold tracking-tight leading-none">00</span>
-                <span class="text-[8px] uppercase tracking-wider text-[#000] mt-1 font-medium leading-none">Menit</span>
+                <span class="text-[8px] uppercase tracking-wider text-[#fff] mt-1 font-medium leading-none">Menit</span>
             </div>
 
-            <div class="w-14 h-14 bg-[#E6DDD7] text-[#000] border border-amber-300/20 rounded-xl flex flex-col items-center justify-center shadow-lg backdrop-blur-xs">
+            <div class="w-14 h-14 bg-[#374049] text-[#fff] rounded-xl flex flex-col items-center justify-center shadow-lg backdrop-blur-xs">
                 <span id="seconds" class="font-inter text-xl font-bold tracking-tight leading-none">00</span>
-                <span class="text-[8px] uppercase tracking-wider text-[#000] mt-1 font-medium leading-none">Detik</span>
+                <span class="text-[8px] uppercase tracking-wider text-[#fff] mt-1 font-medium leading-none">Detik</span>
             </div>
 
         </div>

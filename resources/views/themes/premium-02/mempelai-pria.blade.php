@@ -22,17 +22,13 @@ $ortuPria = $mempelaiData['ortu_mempelai_pria'] ?? 'text belom ada';
     <div class="my-auto w-full max-w-xs space-y-5"></div>
 
     <!-- Bagian Bawah: Tombol Buka Undangan -->
-    <div class="mb-10 w-full px-6 flex flex-col items-center text-center gap-4 z-10">
+    <div class="mb-10 w-full px-6 flex flex-col items-center text-center z-10">
         <!-- Teks Kepada Yth -->
-        <h3 class="ani-fade-up font-alex text-[2.5rem] font-bold text-[#E6DDD7] drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)] leading-none mb-1" style="animation-delay: 0.6s; opacity: 0;">
+        <h3 class="ani-fade-up font-alex text-[2.3rem] font-bold text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)] leading-none mb-1 active" style="animation-delay: 0.6s; opacity: 0;">
             {{ $mempelaiPria }}
         </h3>
 
-        <p class="ani-fade-up font-poppins text-[10px] text-[#E6DDD7] drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)] uppercase tracking-widest leading-none mb-1" style="animation-delay: 0.8s; opacity: 0;">
-            Anak Dari
-        </p>
-
-        <p class="ani-fade-up font-poppins text-xs font-bold text-[#E6DDD7] drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]" style="animation-delay: 1s; opacity: 0;">
+        <p class="ani-fade-up font-poppins text-[13px] text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]" style="animation-delay: 1s; opacity: 0;">
             {{ $ortuPria }}
         </p>
     </div>

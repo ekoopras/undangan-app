@@ -24,14 +24,12 @@ $wanita = $coverData['cover_mempelai_wanita'] ?? 'Wanita';
 <section id="cover-screen"
     class="fixed inset-y-0 left-1/2 -translate-x-1/2 w-full max-w-md bg-cover bg-center z-50 flex flex-col justify-between items-center text-center p-8 transition-all duration-700 ease-in-out overflow-y-auto"
     style="background-image: url('{{ $sampulUrl }}');">
+
     <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-black/20 pointer-events-none z-0 [mask-image:linear-gradient(to_bottom,transparent_10%,black_100%)]"></div>
 
     <!-- Bagian Atas: Avatar & Header Undangan -->
-    <div class="mt-8 text-[#EFEAE2] flex flex-col items-center">
-        <span class="text-xs uppercase tracking-widest block opacity-80 mb-2">Walimatul 'Ursy</span>
-        <h2 class="font-alex text-4xl text-[#E6DDD7] leading-relaxed">
-            {{ $pria }} & {{ $wanita }}
-        </h2>
+    <div class="mt-3 text-[#EFEAE2] flex flex-col items-center">
+
     </div>
 
     {{-- Kondisional Gambar Avatar (Hanya muncul jika ada) --}}
@@ -43,24 +41,34 @@ $wanita = $coverData['cover_mempelai_wanita'] ?? 'Wanita';
     </div>
     @endif
 
-    <!-- Bagian Bawah: Tombol Buka Undangan -->
-    <div class="font-poppins mb-10 w-full px-6 flex flex-col items-center text-center gap-4 z-10">
-        <!-- Teks Kepada Yth -->
-        <p class="text-xs text-[#EFEAE2] uppercase tracking-widest">
-            Kepada Yth :
-        </p>
+    <!-- Wrapper Utama Bagian Bawah -->
+    <div class="font-poppins w-full px-6 mb-3 flex flex-col items-center text-center z-10 space-y-6">
 
-        <!-- Nama Tamu -->
-        <h1 class="text-2xl font-bold text-[#EFEAE2] capitalize">
-            {{ request('to') ?? 'Tamu Undangan' }}
-        </h1>
+        <!-- Group Teks Kepada Yth & Nama Tamu -->
+        <div class="flex flex-col items-center justify-center gap-1.5">
+            <h2 class="font-alex text-[2.5rem] text-white font-bold leading-relaxed">
+                <span>{{ $pria }}</span>
+                <img src="{{ asset('themes/premium-02/frame.png') }}" alt="&" class="h-[60px] w-auto inline-block object-contain" />
+                <span>{{ $wanita }}</span>
+            </h2>
 
+            <p class="text-[12px] text-white tracking-wide">
+                Kepada Yth.
+            </p>
 
-        <!-- Tombol Buka Undangan (Rounded Full / Warna Putih Keabu-abuan) -->
-        <button onclick="bukaUndangan(); playMusicFromCover();"
-            class="w-[60%] max-w-xs py-[10px] bg-slate-100 hover:bg-white text-[#4A3E3D] text-xs font-bold uppercase rounded-full shadow-lg transition-all duration-300 transform active:scale-95 flex items-center justify-center gap-2 animate-bounce cursor-pointer border border-white/30">
-            Buka Undangan
-        </button>
+            <h1 class="text-[15px] font-bold text-white capitalize drop-shadow-sm">
+                {{ request('to') ?? 'Tamu Undangan' }}
+            </h1>
+        </div>
+
+        <!-- Tombol Buka Undangan -->
+        <div class="w-full flex justify-center pt-2">
+            <button onclick="bukaUndangan(); playMusicFromCover();"
+                class="w-[60%] max-w-xs py-3 bg-[#374049] text-[#fff] text-xs font-bold uppercase rounded-full shadow-lg transition-all duration-300 active:scale-95 flex items-center justify-center gap-2 animate-bounce cursor-pointer tracking-wider">
+                <span>Buka Undangan</span>
+            </button>
+        </div>
+
     </div>
 </section>
 

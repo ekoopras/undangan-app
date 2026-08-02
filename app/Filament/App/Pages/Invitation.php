@@ -21,6 +21,9 @@ use Filament\Forms\Components\Actions\Action;
 use Filament\Forms\Components\Component;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\ViewField;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\HtmlString;
 
 class Invitation extends Page implements HasForms
 {
@@ -86,6 +89,18 @@ class Invitation extends Page implements HasForms
                     })
             );
     }
+
+    private static function makeViewFieldPicker(string $fieldName)
+    {
+        return ViewField::make($fieldName . '_preview')
+            ->columnSpanFull()
+            ->view('filament.app.pages.media-picker-preview')
+            ->viewData([
+                // Mengambil state path asli dari TextInput (misal: 'data.cover_gambar_sampul')
+                'targetFieldName' => $fieldName,
+            ]);
+    }
+
 
     public function form(Form $form): Form
     {
@@ -156,7 +171,10 @@ class Invitation extends Page implements HasForms
                                     ->schema([
                                         // Cukup tulis nama field-nya tanpa prefix 'features.'
                                         self::makeMediaPickerField('cover_gambar_sampul', 'Gambar Sampul')->nullable(),
+                                        self::makeViewFieldPicker('cover_gambar_sampul'),
+
                                         self::makeMediaPickerField('cover_gambar_avatar', 'Gambar Avatar')->nullable(),
+                                        self::makeViewFieldPicker('cover_gambar_avatar'),
                                     ]),
                             ])
                             ->visible(fn(\Filament\Forms\Get $get) => $get('type') === 'cover'),
@@ -166,6 +184,7 @@ class Invitation extends Page implements HasForms
                                 Grid::make(2)
                                     ->schema([
                                         self::makeMediaPickerField('opening_gambar_avatar', 'Gambar Avatar')->nullable(),
+                                        self::makeViewFieldPicker('opening_gambar_avatar'),
                                     ]),
                                 Grid::make(2)->schema([
                                     TextInput::make('opening_mempelai_pria')
@@ -187,6 +206,7 @@ class Invitation extends Page implements HasForms
                                 Grid::make(2)
                                     ->schema([
                                         self::makeMediaPickerField('quote_gambar_avatar', 'Gambar Avatar')->nullable(),
+                                        self::makeViewFieldPicker('quote_gambar_avatar'),
                                     ]),
                                 Grid::make(2)
                                     ->schema([
@@ -203,6 +223,7 @@ class Invitation extends Page implements HasForms
                                     ->schema([
 
                                         self::makeMediaPickerField('avatar_mempelai_pria', 'Gambar Avatar')->nullable(),
+                                        self::makeViewFieldPicker('avatar_mempelai_pria'),
 
                                         TextInput::make('mempelai_pria')
                                             ->label('Nama Mempelai Laki-laki')
@@ -222,6 +243,7 @@ class Invitation extends Page implements HasForms
                                     ->schema([
 
                                         self::makeMediaPickerField('avatar_mempelai_wanita', 'Gambar Avatar')->nullable(),
+                                        self::makeViewFieldPicker('avatar_mempelai_wanita'),
 
                                         TextInput::make('mempelai_wanita')
                                             ->label('Nama Mempelai Wanita')
@@ -250,6 +272,9 @@ class Invitation extends Page implements HasForms
                                                         self::makeMediaPickerField('foto', 'File Foto')
                                                             ->required()
                                                             ->columnSpan(2),
+
+                                                        self::makeViewFieldPicker('foto'),
+
 
                                                     ]),
                                             ])
@@ -372,6 +397,8 @@ class Invitation extends Page implements HasForms
                                 Grid::make(2)
                                     ->schema([
                                         self::makeMediaPickerField('avatar_terimakasih', 'Gambar Avatar')->nullable(),
+                                        self::makeViewFieldPicker('avatar_terimakasih'),
+
                                     ]),
                                 Grid::make(2)
                                     ->schema([

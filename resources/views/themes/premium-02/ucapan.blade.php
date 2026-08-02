@@ -11,9 +11,11 @@ $wanita = $coverData['cover_mempelai_wanita'] ?? 'Wanita';
 <section id="ucapan" class="h-[100dvh] w-full flex flex-col justify-start items-center text-center pt-10 pb-6 px-6 bg-transparent relative snap-start shrink-0 box-border overflow-hidden">
 
     <!-- 1. HEADER NAMA MEMPELAI -->
-    <div class="w-full mb-4">
-        <h2 class="font-cursive text-3xl md:text-4xl text-[#E6DDD7] leading-relaxed">
-            {{ $pria }} & {{ $wanita }}
+    <div class="w-full pt-2 ani-fade-up">
+        <h2 class="font-alex text-[1.7rem] text-white leading-relaxed">
+            <span>{{ $pria }}</span>
+            <img src="{{ asset('themes/premium-02/frame.png') }}" alt="&" class="h-[60px] w-auto inline-block object-contain" />
+            <span>{{ $wanita }}</span>
         </h2>
     </div>
 
@@ -40,14 +42,33 @@ $wanita = $coverData['cover_mempelai_wanita'] ?? 'Wanita';
         </form>
 
         <!-- DAFTAR PESAN (SCROLLABLE) -->
-        <div class="h-[300px] overflow-y-auto no-scrollbar space-y-3 text-left" id="wishes-container">
+        <div class="h-[320px] overflow-y-auto no-scrollbar space-y-3 text-left px-1" id="wishes-container">
             @foreach($invitation->wishes as $wish)
-            <div class="bg-white/10 p-3.5 rounded-xl border border-white/15 backdrop-blur-md shadow-sm">
-                <div class="flex justify-between items-center mb-1.5">
-                    <h4 class="text-[11px] font-bold text-[#E6DDD7] capitalize leading-none tracking-wide">{{ $wish->name }}</h4>
-                    <span class="text-[9px] text-white/50 leading-none">{{ $wish->created_at->diffForHumans() }}</span>
+            <div class="bg-white/95 text-gray-800 p-3.5 rounded-2xl shadow-md border border-white/20 flex gap-3 items-start transition-all duration-300 hover:bg-white">
+
+                <!-- Avatar Bulat Ala Sosmed -->
+                <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-amber-600 to-amber-400 text-white font-bold text-xs flex items-center justify-center shrink-0 uppercase shadow-sm">
+                    {{ substr($wish->name ?? 'T', 0, 1) }}
                 </div>
-                <p class="text-[11px] text-white/90 leading-relaxed font-light">{{ $wish->message }}</p>
+
+                <!-- Detail Komentar -->
+                <div class="flex-1 min-w-0">
+                    <!-- Header: Nama & Waktu -->
+                    <div class="flex justify-between items-baseline gap-2 mb-1">
+                        <h4 class="text-xs font-bold text-gray-900 capitalize truncate tracking-tight">
+                            {{ $wish->name }}
+                        </h4>
+                        <span class="text-[10px] font-medium text-gray-400 shrink-0">
+                            {{ $wish->created_at->diffForHumans() }}
+                        </span>
+                    </div>
+
+                    <!-- Isi Pesan -->
+                    <p class="text-xs text-gray-700 leading-relaxed font-normal break-words">
+                        {{ $wish->message }}
+                    </p>
+                </div>
+
             </div>
             @endforeach
         </div>

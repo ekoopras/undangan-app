@@ -19,8 +19,10 @@ $wanita = $coverData['cover_mempelai_wanita'] ?? 'Wanita';
 <section id="maps" class="h-[100dvh] w-full flex flex-col justify-between items-center text-center py-12 px-6 bg-transparent relative snap-start shrink-0 box-border overflow-hidden">
 
     <div class="w-full pt-2 ani-fade-up">
-        <h2 class="font-alex text-4xl text-[#E6DDD7] leading-relaxed">
-            {{ $pria }} & {{ $wanita }}
+        <h2 class="font-alex text-[1.7rem] text-white leading-relaxed">
+            <span>{{ $pria }}</span>
+            <img src="{{ asset('themes/premium-02/frame.png') }}" alt="&" class="h-[60px] w-auto inline-block object-contain" />
+            <span>{{ $wanita }}</span>
         </h2>
     </div>
 
@@ -29,7 +31,7 @@ $wanita = $coverData['cover_mempelai_wanita'] ?? 'Wanita';
 
         <!-- Deskripsi Nama Tempat (Fade Up Delay 100ms) -->
         @if(!empty($mapsData['nama_tempat']))
-        <h1 class="font-poppins text-md text-[#E6DDD7] drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)] leading-relaxed px-2 ani-fade-up delay-100">
+        <h1 class="font-gurajada text-[2rem] font-bold text-white uppercase drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)] leading-relaxed px-2 ani-fade-up delay-100">
             {{ $mapsData['nama_tempat'] }}
         </h1>
         @endif
@@ -41,7 +43,7 @@ $wanita = $coverData['cover_mempelai_wanita'] ?? 'Wanita';
 
         <!-- Deskripsi Alamat Lengkap (Fade Up Delay 300ms) -->
         @if(!empty($mapsData['alamat_lengkap']))
-        <p class="font-poppins text-xs text-[#E6DDD7] drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)] leading-relaxed px-2 ani-fade-up delay-300">
+        <p class="font-poppins text-xs text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)] leading-relaxed px-2 ani-fade-up delay-300">
             {{ $mapsData['alamat_lengkap'] }}
         </p>
         @endif
@@ -50,7 +52,7 @@ $wanita = $coverData['cover_mempelai_wanita'] ?? 'Wanita';
         <a href="{{ $linkMaps }}"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 px-5 py-2.5 bg-[#0c4643] text-amber-200 border border-amber-300/20 rounded-xl font-inter text-xs font-semibold tracking-wider uppercase shadow-md active:scale-95 transition-all ani-fade-up delay-400">
+            class="inline-flex items-center gap-2 px-5 py-2.5 bg-[#374049] text-white rounded-xl font-inter text-xs font-semibold tracking-wider uppercase shadow-md active:scale-95 transition-all ani-fade-up delay-400">
             <svg class="w-4 h-4 text-amber-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
             </svg>
