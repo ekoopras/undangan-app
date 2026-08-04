@@ -319,6 +319,12 @@ class Invitation extends Page implements HasForms
                                                 TextInput::make('alamat')
                                                     ->label('Alamat')
                                                     ->columnSpan(2),
+
+                                                TextInput::make('gmaps')
+                                                    ->label('Link Google Maps (Tombol Navigasi)')
+                                                    ->placeholder('https://maps.app.goo.gl/...')
+                                                    ->url()
+                                                    ->columnSpan(2),
                                             ]),
                                     ])
                                     ->collapsible()
