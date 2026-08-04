@@ -24,15 +24,15 @@ $wanita = $coverData['cover_mempelai_wanita'] ?? 'Wanita';
     <meta property="og:description" content="Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan kami.">
 
     <!-- Gambar Sampul Preview -->
-    <meta property="og:image" content="https://arhub.web.id/dhiah/dzz.jpeg">
-    <meta property="og:image:secure_url" content="https://arhub.web.id/dhiah/dzz.jpeg">
+    <meta property="og:image" content="https://arhub.web.id/dhiah/dhiah.jpeg">
+    <meta property="og:image:secure_url" content="https://arhub.web.id/dhiah/dhiah.jpeg">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="600">
     <meta property="og:image:height" content="315">
 
     <!-- Twitter Card Fallback -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://arhub.web.id/dhiah/dzz.jpeg">
+    <meta name="twitter:image" content="https://arhub.web.id/dhiah/dhiah.jpeg">
 
     <script src="https://cdn.tailwindcss.com/3.4.15"></script>
 
